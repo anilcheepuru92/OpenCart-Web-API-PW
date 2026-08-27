@@ -5,6 +5,7 @@ import { LoginPage } from '../pages/LoginPage';
 import { CsvHelper } from '../utils/csv-util';
 import { SearchResultsPage } from '../pages/SearchResultsPage';
 import { ProductDetailsPage } from '../pages/ProductDetailsPage';
+import { EditAccountPage } from '../pages/EditAccountPage';
 import { BasePage } from '../pages/BasePage';
 
 //define the types for page fixtures
@@ -12,6 +13,7 @@ type pageFixtures = {
     basePage: BasePage,
     loginPage: LoginPage,
     homePage: HomePage,
+    editAccountPage: EditAccountPage,
     searchResultsPage: SearchResultsPage,
     productDetailsPage : ProductDetailsPage,
     testData: Record<string, string>[]
@@ -33,6 +35,11 @@ export let test = baseTest.extend<pageFixtures>({
     homePage: async ({page}, use) => {
         let homePage = new HomePage(page);
         await use(homePage);
+    },
+
+    editAccountPage: async ({page}, use) => {
+        let editAccountPage = new EditAccountPage(page);
+        await use(editAccountPage);
     },
 
     searchResultsPage: async ({page}, use) => {

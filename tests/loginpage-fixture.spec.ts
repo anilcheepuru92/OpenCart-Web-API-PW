@@ -20,13 +20,18 @@ test('forgot password link test', async({loginPage}) => {
     expect(status).toBeTruthy();
 })
 
-test('valid login test', async({loginPage, homePage}) => {
+test('valid login test', async({loginPage, homePage, editAccountPage}) => {
     console.log(`Username =>${process.env.LOGINID!}, Password =>${process.env.PASSWORD!}`);
     await loginPage.doLogin(process.env.LOGINID!, process.env.PASSWORD!);
     let status = await homePage.isLogoutLinkPresent();
     expect.soft(status).toBeTruthy();
     let homePageTitle = await homePage.getPageTitle();
     expect.soft(homePageTitle).toBe('My Account');
+    await homePage.goToEditAccInfoPage();
+    let editAccInfoPageTitle = await editAccountPage.getSectionHeader();
+    expect.soft(editAccInfoPageTitle).toBe('My Account Information');
+    let currentEmail = await editAccountPage.getCurrentEmail();
+    console.log("CURRENT E-MAIL => ", currentEmail);
 })
 
 //with fixtures: runs in sequential mode
