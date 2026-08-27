@@ -13,9 +13,6 @@ test.beforeEach('POST -- generate the PayPal access token', async({request})=> {
     const clientSecret = process.env.PAYPAL_CLIENT_SECRET;
     const grantType = process.env.GRANT_TYPE;
 
-    console.log("CLIENT ID:", clientId);
-    console.log("CLIENT SECRET:", clientSecret);
-
     const response = await request.post(
     'https://api-m.sandbox.paypal.com/v1/oauth2/token',
     {

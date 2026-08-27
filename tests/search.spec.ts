@@ -5,7 +5,6 @@ import { CsvHelper } from "../src/utils/csv-util";
 
 test.beforeEach(async({loginPage}) => {
     await loginPage.goToLoginPage();
-    // await loginPage.doLogin('anil.kumar@gmail.com', '@7jiKHUgUJzcekG');
     await loginPage.doLogin(process.env.LOGINID!, process.env.PASSWORD!);
 })
 
