@@ -21,7 +21,6 @@ test('forgot password link test', async({loginPage}) => {
 })
 
 test('valid login test', async({loginPage, homePage, editAccountPage}) => {
-    console.log(`Username =>${process.env.LOGINID!}, Password =>${process.env.PASSWORD!}`);
     await loginPage.doLogin(process.env.LOGINID!, process.env.PASSWORD!);
     let status = await homePage.isLogoutLinkPresent();
     expect.soft(status).toBeTruthy();
