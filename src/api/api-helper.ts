@@ -22,7 +22,6 @@ export class APIHelper{
 
     //POST
     async post(endPoint: string, data: object, headers?: Record<string, string>){
-        console.log("BASE URL IN POST REQUEST =>", this.baseUrl);
         let response = await this.request.post(`${this.baseUrl}${endPoint}`, { headers: headers, data: data });
         return {
             status: response.status(),

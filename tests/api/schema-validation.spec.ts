@@ -50,7 +50,6 @@ test('Get a single user and validate the schema', async({apiHelper})=> {
         status: 'active'
     };
     //create a new user
-    console.log("Auth_HEADER =>", AUTH_HEADER);
     let response: { status: number; body: any } = await apiHelper.post('public/v2/users', userData, AUTH_HEADER);
     expect(response.status).toBe(201);
     console.log("CREATE USER: RESPONSE BODY =>", response.body);
