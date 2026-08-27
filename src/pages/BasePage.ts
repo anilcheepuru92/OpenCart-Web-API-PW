@@ -12,9 +12,9 @@ export class BasePage{
     protected readonly currency: Locator;
     protected readonly cartButton: Locator;
     protected expectedFooterNames = ['About Us', 'Delivery Information', 'Privacy Policy', 'Terms & Conditions', 'Contact Us',
-                               'Returns', 'Site Map', 'Brands', 'Gift Certificates', 'Affiliate', 'Specials', 'My Account',
-                               'Order History', 'Wish List', 'Newsletter', 'OpenCart'
-                              ]
+                                    'Returns', 'Site Map', 'Brands', 'Gift Certificates', 'Affiliate', 'Specials', 'My Account',
+                                    'Order History', 'Wish List', 'Newsletter', 'OpenCart'
+                                    ]
 
     constructor(page: Page){
         this.page = page;

@@ -32,6 +32,7 @@ export class LoginPage extends BasePage{
     }
 
     async doLogin(username: string, password: string): Promise<void>{
+        console.log(`CREDENTIALS => ${username}, ${password}`);
         await this.emailField.fill(username);
         await this.passwordField.fill(password);
         await this.loginBtn.click();
