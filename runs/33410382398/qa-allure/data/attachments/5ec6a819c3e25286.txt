@@ -1,0 +1,7 @@
+CREATE USER: RESPONSE BODY => {
+  id: 8597387,
+  name: 'Anasooya Dwivedi',
+  email: 'user_1788191329749@api.com',
+  gender: 'female',
+  status: 'inactive'
+}
