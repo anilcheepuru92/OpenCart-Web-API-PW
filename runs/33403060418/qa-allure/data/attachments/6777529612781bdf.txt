@@ -1,0 +1,9 @@
+STATUS CODE ==> 201
+STATUS CODE ==> Created
+RESPONSE BODY ==>  {
+  id: 8597341,
+  name: 'anil',
+  email: 'automation_1788186786712@api.com',
+  gender: 'male',
+  status: 'active'
+}

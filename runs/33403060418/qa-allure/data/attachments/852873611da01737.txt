@@ -1,0 +1,7 @@
+CREATE USER: RESPONSE BODY => {
+  id: 8597337,
+  name: 'Schema User',
+  email: 'user_1788186781365@schema.com',
+  gender: 'male',
+  status: 'active'
+}
