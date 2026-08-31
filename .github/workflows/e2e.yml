@@ -607,48 +607,48 @@ jobs:
       #     from: "CI Bot <${{ secrets.EMAIL_USERNAME }}>"
       #     html_body: file://dashboard.html
 
-      # - name: Send Slack Notification
-      #   if: always()
-      #   uses: 8398a7/action-slack@v3
-      #   with:
-      #     status: custom
-      #     custom_payload: |
-      #       {
-      #         "blocks": [
-      #           {
-      #             "type": "header",
-      #             "text": { "type": "plain_text", "text": "🎭 Playwright CI/CD Pipeline Report" }
-      #           },
-      #           {
-      #             "type": "section",
-      #             "text": { "type": "mrkdwn", "text": "*Overall: ${{ steps.status.outputs.overall }}*\n\n*Branch:* `${{ github.ref_name }}`  |  *Triggered by:* `${{ github.actor }}`" }
-      #           },
-      #           { "type": "divider" },
-      #           {
-      #             "type": "section",
-      #             "text": { "type": "mrkdwn", "text": "${{ steps.status.outputs.build }}  *Build* — Maven Unit Tests\n${{ steps.status.outputs.dev }}  *DEV* — Sanity (@smoke)\n${{ steps.status.outputs.qa }}  *QA* — Regression (All Tests)\n${{ steps.status.outputs.stage }}  *STAGE* — Sanity (@smoke)\n${{ steps.status.outputs.prod }}  *PROD* — Smoke (@smoke)" }
-      #           },
-      #           { "type": "divider" },
-      #           {
-      #             "type": "actions",
-      #             "elements": [
-      #               {
-      #                 "type": "button",
-      #                 "text": { "type": "plain_text", "text": "📊 View Reports" },
-      #                 "url": "${{ steps.status.outputs.report_url }}/index.html",
-      #                 "style": "primary"
-      #               },
-      #               {
-      #                 "type": "button",
-      #                 "text": { "type": "plain_text", "text": "📁 GitHub Actions" },
-      #                 "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-      #               }
-      #             ]
-      #           }
-      #         ]
-      #       }
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Send Slack Notification
+        if: always()
+        uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          custom_payload: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": { "type": "plain_text", "text": "🎭 Playwright CI/CD Pipeline Report" }
+                },
+                {
+                  "type": "section",
+                  "text": { "type": "mrkdwn", "text": "*Overall: ${{ steps.status.outputs.overall }}*\n\n*Branch:* `${{ github.ref_name }}`  |  *Triggered by:* `${{ github.actor }}`" }
+                },
+                { "type": "divider" },
+                {
+                  "type": "section",
+                  "text": { "type": "mrkdwn", "text": "${{ steps.status.outputs.build }}  *Build* — Maven Unit Tests\n${{ steps.status.outputs.dev }}  *DEV* — Sanity (@smoke)\n${{ steps.status.outputs.qa }}  *QA* — Regression (All Tests)\n${{ steps.status.outputs.stage }}  *STAGE* — Sanity (@smoke)\n${{ steps.status.outputs.prod }}  *PROD* — Smoke (@smoke)" }
+                },
+                { "type": "divider" },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": { "type": "plain_text", "text": "📊 View Reports" },
+                      "url": "${{ steps.status.outputs.report_url }}/index.html",
+                      "style": "primary"
+                    },
+                    {
+                      "type": "button",
+                      "text": { "type": "plain_text", "text": "📁 GitHub Actions" },
+                      "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - name: Pipeline Summary
         run: |
