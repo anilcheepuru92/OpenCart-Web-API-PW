@@ -1,0 +1,72 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: homepage.spec.ts >> home page title test
+- Location: tests/homepage.spec.ts:16:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded while running "beforeEach" hook.
+```
+
+```
+Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+Call log:
+  - navigating to "https://naveenautomationlabs.com/opencart/index.php?route=account/login", waiting until "load"
+
+```
+
+# Test source
+
+```ts
+  1  | 
+  2  | 
+  3  | import { Locator, Page } from '@playwright/test';
+  4  | import { BasePage } from './BasePage';
+  5  | 
+  6  | export class LoginPage extends BasePage{
+  7  | 
+  8  |     //private locators
+  9  |     private readonly emailField: Locator ;
+  10 |     private readonly passwordField: Locator ;
+  11 |     private readonly forgotPasswordLink: Locator;
+  12 |     private readonly loginBtn: Locator ;
+  13 |     private readonly loginErrorMsg: Locator;
+  14 | 
+  15 |     //initializing the locators inside the constructor
+  16 |     constructor(page: Page) {
+  17 |         super(page);
+  18 |         this.emailField = page.getByRole('textbox', { name: 'E-Mail Address' });
+  19 |         this.passwordField = page.getByRole('textbox', { name: 'Password' });
+  20 |         this.forgotPasswordLink = page.getByPlaceholder('Password');
+  21 |         this.loginBtn = page.getByRole('button', { name: 'Login' });
+  22 |         this.loginErrorMsg = page.locator('.alert.alert-danger.alert-dismissible');
+  23 |     }
+  24 | 
+  25 |     //public page actions
+  26 |     async goToLoginPage(): Promise<void>{
+> 27 |         await this.page.goto('opencart/index.php?route=account/login');
+     |                         ^ Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+  28 |     }
+  29 | 
+  30 |     async isForgotPwdLinkPresent(): Promise<boolean>{
+  31 |         return await this.forgotPasswordLink.isVisible();
+  32 |     }
+  33 | 
+  34 |     async doLogin(username: string, password: string): Promise<void>{
+  35 |         await this.emailField.fill(username);
+  36 |         await this.passwordField.fill(password);
+  37 |         await this.loginBtn.click();
+  38 |     }
+  39 | 
+  40 |     async isLoginErrorMsgPresent(): Promise<boolean>{
+  41 |         return await this.loginErrorMsg.isVisible();
+  42 |     }
+  43 | }
+```

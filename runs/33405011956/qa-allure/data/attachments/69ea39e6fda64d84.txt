@@ -1,0 +1,20 @@
+CREATE USER: RESPONSE BODY => {
+  id: 8597351,
+  name: 'Anasooya Dwivedi',
+  email: 'user_1788187992196@api.com',
+  gender: 'female',
+  status: 'inactive'
+}
+PUT REQUEST BODY =>  {
+  name: 'Anonymous',
+  email: 'user_1788187992196@api.com',
+  gender: 'male',
+  status: 'inactive'
+}
+PUT RESPONSE BODY => {
+  id: 8597351,
+  name: 'Anonymous',
+  email: 'user_1788187992196@api.com',
+  gender: 'male',
+  status: 'inactive'
+}

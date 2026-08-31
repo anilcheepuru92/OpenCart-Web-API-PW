@@ -1,0 +1,72 @@
+RESPONSE BODY => [
+  {
+    id: 8597349,
+    name: 'Schema User',
+    email: 'user_1788187984755@schema.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8597348,
+    name: 'Schema User',
+    email: 'user_1788187920777@schema.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8597344,
+    name: 'Schema User',
+    email: 'user_1788186960604@schema.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8597342,
+    name: 'Schema User',
+    email: 'user_1788186894379@schema.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8597341,
+    name: 'anil',
+    email: 'automation_1788186786712@api.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8597340,
+    name: 'Anonymous',
+    email: 'user_1788186785050@api.com',
+    gender: 'male',
+    status: 'inactive'
+  },
+  {
+    id: 8597338,
+    name: 'Anasooya Dwivedi',
+    email: 'user_1788186783087@api.com',
+    gender: 'female',
+    status: 'inactive'
+  },
+  {
+    id: 8597337,
+    name: 'Schema User',
+    email: 'user_1788186781365@schema.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8597336,
+    name: 'Schema User',
+    email: 'user_1788186718287@schema.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8597330,
+    name: 'Anonymous',
+    email: 'user_1788186265797@api.com',
+    gender: 'male',
+    status: 'inactive'
+  }
+]
