@@ -1,0 +1,11 @@
+GET RESPONSE =>  {
+  total_count: 0,
+  invoices: [],
+  links: [
+    {
+      rel: 'self',
+      href: 'https://api.sandbox.paypal.com/v1/invoicing/invoices?page=3&page_size=4&total_count_required=true',
+      method: 'GET'
+    }
+  ]
+}
