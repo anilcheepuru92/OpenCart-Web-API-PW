@@ -2,7 +2,7 @@ import { test } from "@playwright/test";
 
 let AUTH_TOKEN = {Authorization: "Bearer 10c0ba53681b541d08ba132593d8f32c28b45c81fd7717b42cc1f833144f01c2"};
 
-test('get user test', async({ request }) => {   
+test('@regression get user test', async({ request }) => {   
     let response = await request.get('https://gorest.co.in/public/v2/users/8525307', {
         headers: AUTH_TOKEN
     });
@@ -21,7 +21,7 @@ let userJson = {
     "status": "active"
 }
 
-test('create a new user test', async({ request }) => {    
+test('@regression create a new user test', async({ request }) => {    
     let userData = {
         name: 'anil',
         email: `automation_${Date.now()}@api.com`,
@@ -39,7 +39,7 @@ test('create a new user test', async({ request }) => {
     console.log('RESPONSE BODY ==> ', responseBody);
 })
 
-test('update a user test', async({ request }) => {    
+test('@regression update a user test', async({ request }) => {    
     let userData = {
         email: `automation_${Date.now()}@api.com`,
         gender: 'male',
@@ -56,7 +56,7 @@ test('update a user test', async({ request }) => {
     console.log('RESPONSE BODY ==> ', responseBody);
 })
 
-test('delete a user test', async({ request }) => {      
+test('@regression delete a user test', async({ request }) => {      
     let response = await request.delete('https://gorest.co.in/public/v2/users/8525314', {
         headers: AUTH_TOKEN,
     });

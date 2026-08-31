@@ -29,7 +29,7 @@ test.beforeEach('POST -- generate the PayPal access token', async({request})=> {
     access_token = (await response.json()).access_token;
 })
 
-test('GET invoices', async({request})=> {
+test('@regression GET invoices', async({request})=> {
     //https://api-m.sandbox.paypal.com/v1/invoicing/invoices?page=3&page_size=4&total_count_required=true
     let baseUrl = 'https://api-m.sandbox.paypal.com'
     let endPoint = '/v1/invoicing/invoices'

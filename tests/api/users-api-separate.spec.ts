@@ -20,14 +20,14 @@ async function createUser(apiHelper: any): Promise<any> {
 }
 
 
-test('GET API -- get all users', async({apiHelper})=> {
+test('@smoke GET API -- get all users', async({apiHelper})=> {
     let response = await apiHelper.get('public/v2/users', AUTH_HEADER);
     expect(response.status).toBe(200);
     console.log("RESPONSE BODY =>", response.body);
     expect(response.body.length).toBeGreaterThan(0);
 })
 
-test('POST API -- create a new users', async({apiHelper})=> {
+test('@regression POST API -- create a new users', async({apiHelper})=> {
     //create user
     let responseBody = await createUser(apiHelper);
     let userID = responseBody.id;
@@ -42,7 +42,7 @@ test('POST API -- create a new users', async({apiHelper})=> {
 })
 
 
-test('PUT API -- update a user', async({apiHelper})=> {
+test('@regression PUT API -- update a user', async({apiHelper})=> {
     //create a new user
     let responseBody = await createUser(apiHelper);
     let userID = responseBody.id;
@@ -65,7 +65,7 @@ test('PUT API -- update a user', async({apiHelper})=> {
     expect(getResponse.body.gender).toBe(requestBody.gender);
 })
 
-test('DELETE API -- delete a user', async({apiHelper})=> {
+test('@regression DELETE API -- delete a user', async({apiHelper})=> {
     //create a new user
     let responseBody = await createUser(apiHelper);
     let userID = responseBody.id;

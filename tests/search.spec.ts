@@ -11,7 +11,7 @@ test.beforeEach(async({loginPage}) => {
 
 let csvData = CsvHelper.readCsv("src/data/product.csv");
 for(let row of csvData){
-    test(`product search results test with ${row.productname}`, async({homePage, searchResultsPage}) => {
+    test(`@regression product search results test with ${row.productname}`, async({homePage, searchResultsPage}) => {
         await homePage.performSearch(row.searchkey);
         let searchResultCount = await searchResultsPage.getSearchResultsCount();
         expect(searchResultCount).toEqual(Number(row.resultcount));
@@ -20,7 +20,7 @@ for(let row of csvData){
 
 
 for(let row of csvData){  
-    test(`basic product details test with ${row.productname}`, async({homePage, searchResultsPage, productDetailsPage, page}) => {
+    test(`@regression basic product details test with ${row.productname}`, async({homePage, searchResultsPage, productDetailsPage, page}) => {
         await homePage.performSearch(row.searchkey);
         await searchResultsPage.selectProduct(row.productname);
         let pageTitle = await page.title();

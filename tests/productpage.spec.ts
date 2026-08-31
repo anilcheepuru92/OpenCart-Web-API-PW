@@ -9,7 +9,7 @@ test.beforeEach(async({loginPage}) => {
     await loginPage.doLogin(process.env.LOGINID!, process.env.PASSWORD!);
 })
 
-test(`verify product images count`, async({homePage, searchResultsPage, productDetailsPage}) => {
+test(`@regression verify product images count`, async({homePage, searchResultsPage, productDetailsPage}) => {
     await homePage.performSearch('macbook');
     // let searchResultCount = await searchResultsPage.getSearchResultsCount();
     await searchResultsPage.selectProduct('MacBook Air');
@@ -18,7 +18,7 @@ test(`verify product images count`, async({homePage, searchResultsPage, productD
     expect(imageCount).toBe(4);
 })
 
-test(`verify product data -- MacBook Air`, async({homePage, searchResultsPage, productDetailsPage}) => {
+test(`@regression verify product data -- MacBook Air`, async({homePage, searchResultsPage, productDetailsPage}) => {
     await homePage.performSearch('macbook');
     // let searchResultCount = await searchResultsPage.getSearchResultsCount();
     await searchResultsPage.selectProduct('MacBook Air');
@@ -33,14 +33,14 @@ test(`verify product data -- MacBook Air`, async({homePage, searchResultsPage, p
     expect.soft(fullProductData.get('exTaxPrice')).toBe('$1,000.00');
 })
 
-test(`verify logo on product page`, async({homePage, searchResultsPage, productDetailsPage}) => {
+test(`@smoke verify logo on product page`, async({homePage, searchResultsPage, productDetailsPage}) => {
     await homePage.performSearch('macbook');
     // let searchResultCount = await searchResultsPage.getSearchResultsCount();
     await searchResultsPage.selectProduct('MacBook Air');
     expect(productDetailsPage.isLogoVisible()).toBeTruthy();
 })
 
-test(`verify footers on product page`, async({homePage, searchResultsPage, productDetailsPage}) => {
+test(`@smoke verify footers on product page`, async({homePage, searchResultsPage, productDetailsPage}) => {
     await homePage.performSearch('macbook');
     // let searchResultCount = await searchResultsPage.getSearchResultsCount();
     await searchResultsPage.selectProduct('MacBook Air');

@@ -3,7 +3,7 @@ import {test, expect} from '@playwright/test'
 import { json } from 'node:stream/consumers';
 
 //intercept the network calls
-test('intercept and log requests', async({page})=> {
+test('@smoke intercept and log requests', async({page})=> {
 
     await page.route('**/*', async(route)=> {
         console.log(route.request().method(), route.request().url());
@@ -13,7 +13,7 @@ test('intercept and log requests', async({page})=> {
 })
 
 //intercept with mocking
-test('mock search data API', async({page})=> {
+test('@regression mock search data API', async({page})=> {
     let fakeProducts = [
         {name: 'Fake MacBook Pro', price: '$919'},
         {name: 'Fake iPhone 20', price: '$430'}

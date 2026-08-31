@@ -42,7 +42,7 @@ let userArraySchema = {
     "items": userSchema
 }
 
-test('Get a single user and validate the schema', async({apiHelper})=> {
+test('@smoke Get a single user and validate the schema', async({apiHelper})=> {
     let userData = {
         name: 'Schema User',
         email: `user_${Date.now()}@schema.com`,
@@ -68,7 +68,7 @@ test('Get a single user and validate the schema', async({apiHelper})=> {
     expect(isSchemaValid).toBeTruthy();
 })
 
-test('Get all users and validate the schema', async({apiHelper})=> {
+test('@smoke Get all users and validate the schema', async({apiHelper})=> {
     //fetch all users
     let getResponse = await apiHelper.get(`public/v2/users/`, AUTH_HEADER);
     expect(getResponse.status).toBe(200);

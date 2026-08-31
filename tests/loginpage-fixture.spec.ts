@@ -9,18 +9,18 @@ test.beforeEach(async({loginPage, homePage}) => {
     await loginPage.goToLoginPage();
 })
 
-test('login page title test', async({loginPage}) => {
+test('@smoke login page title test', async({loginPage}) => {
     const pageTitle = await loginPage.getPageTitle();
     console.log("Login Page Title => "+ pageTitle);
     expect(pageTitle).toBe('Account Login');
 })
 
-test('forgot password link test', async({loginPage}) => {
+test('@regression forgot password link test', async({loginPage}) => {
     let status = await loginPage.isForgotPwdLinkPresent();
     expect(status).toBeTruthy();
 })
 
-test('valid login test', async({loginPage, homePage, editAccountPage}) => {
+test('@smoke valid login test', async({loginPage, homePage, editAccountPage}) => {
     await loginPage.doLogin(process.env.LOGINID!, process.env.PASSWORD!);
     let status = await homePage.isLogoutLinkPresent();
     expect.soft(status).toBeTruthy();
@@ -34,7 +34,7 @@ test('valid login test', async({loginPage, homePage, editAccountPage}) => {
 })
 
 //with fixtures: runs in sequential mode
-test('log in with invalid credentials -- data-driven with fixtures', async ({loginPage, testData})=> {
+test('@regression log in with invalid credentials -- data-driven with fixtures', async ({loginPage, testData})=> {
 
     for(let row of testData){
         await loginPage.doLogin(row.username, row.password); //read using the headers
@@ -48,7 +48,7 @@ test('log in with invalid credentials -- data-driven with fixtures', async ({log
 let csvData = CsvHelper.readCsv("src/data/loginData.csv");
 //without fixtures: runs in parallel mode
 for(let row of csvData){  
-    test(`log in with invalid credentials -- data-driven with ${row.username}, ${row.password} `, async ({loginPage})=> {
+    test(`@regression log in with invalid credentials -- data-driven with ${row.username}, ${row.password} `, async ({loginPage})=> {
         await loginPage.doLogin(row.username, row.password); //read using the headers
         let errorStatus = await loginPage.isLoginErrorMsgPresent();
         expect(errorStatus).toBeTruthy();
@@ -59,7 +59,7 @@ let excelData = ExcelHelper.readExcel("src/data/OpenCartTestData.xlsx", "login")
 //without fixtures: runs in parallel mode
 for(let row of excelData){ 
     console.log(`Credentials =>${row.username},${row.password}`);
-    test(`log in with invalid credentials -- excel data-driven with ${row.username}, ${row.password} `, async ({loginPage})=> {
+    test(`@regression log in with invalid credentials -- excel data-driven with ${row.username}, ${row.password} `, async ({loginPage})=> {
         await loginPage.doLogin(row.username, row.password); //read using the headers
         let errorStatus = await loginPage.isLoginErrorMsgPresent();
         expect(errorStatus).toBeTruthy();
@@ -70,7 +70,7 @@ let jsonData = JsonHelper.readJson("src/data/logindata.json");
 //without fixtures: runs in parallel mode
 for(let row of jsonData){ 
     console.log(`Credentials =>${row.username},${row.password}`);
-    test(`log in with invalid credentials -- JSON data-driven with ${row.username}, ${row.password} `, async ({loginPage})=> {
+    test(`@regression log in with invalid credentials -- JSON data-driven with ${row.username}, ${row.password} `, async ({loginPage})=> {
         await loginPage.doLogin(row.username, row.password); //read using the headers
         let errorStatus = await loginPage.isLoginErrorMsgPresent();
         expect(errorStatus).toBeTruthy();
