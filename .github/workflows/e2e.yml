@@ -432,7 +432,7 @@ jobs:
             echo "overall=❌ SOME FAILURES" >> $GITHUB_OUTPUT
           fi
 
-          REPORT_BASE="https://naveenanimation20.github.io/OpenCartWebAPIFramework/runs/${{ github.run_id }}"
+          REPORT_BASE="https://anilcheepuru92.github.io/OpenCart-Web-API-PW/runs/${{ github.run_id }}"
           echo "report_url=${REPORT_BASE}" >> $GITHUB_OUTPUT
 
       - name: Download All Reports
@@ -587,7 +587,7 @@ jobs:
                 <a class="report-link green" href="${REPORT_URL}/qa-allure/index.html">📈 QA Allure Report</a>
               </div>
               <div class="footer">
-                Naveen Automation Labs | Playwright Framework | $(date +'%d %b %Y, %I:%M %p UTC')
+                Anil Kumar Cheepuru | Playwright Framework | $(date +'%d %b %Y, %I:%M %p UTC')
               </div>
             </div>
           </body>
