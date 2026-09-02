@@ -114,7 +114,7 @@ pipeline {
                         sh '''
                             ENV=dev \
                             BASE_URL=$BASE_URL \
-                            USERNAME=$USERNAME \
+                            LOGINID=$USERNAME \
                             PASSWORD=$PASSWORD \
                             API_BASE_URL=$API_BASE_URL \
                             API_TOKEN=$API_TOKEN \
@@ -180,7 +180,7 @@ pipeline {
                         sh '''
                             ENV=qa \
                             BASE_URL=$BASE_URL \
-                            USERNAME=$USERNAME \
+                            LOGINID=$USERNAME \
                             PASSWORD=$PASSWORD \
                             API_BASE_URL=$API_BASE_URL \
                             API_TOKEN=$API_TOKEN \
@@ -246,7 +246,7 @@ pipeline {
                         sh '''
                             ENV=stage \
                             BASE_URL=$BASE_URL \
-                            USERNAME=$USERNAME \
+                            LOGINID=$USERNAME \
                             PASSWORD=$PASSWORD \
                             API_BASE_URL=$API_BASE_URL \
                             API_TOKEN=$API_TOKEN \
@@ -320,7 +320,7 @@ pipeline {
                         sh '''
                             ENV=prod \
                             BASE_URL=$BASE_URL \
-                            USERNAME=$USERNAME \
+                            LOGINID=$USERNAME \
                             PASSWORD=$PASSWORD \
                             API_BASE_URL=$API_BASE_URL \
                             API_TOKEN=$API_TOKEN \
