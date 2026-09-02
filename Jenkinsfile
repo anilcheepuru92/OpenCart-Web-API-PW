@@ -104,7 +104,7 @@ pipeline {
                     sh 'rm -rf allure-results reports'
                     withCredentials([
                         usernamePassword(credentialsId: 'dev-credentials',
-                            usernameVariable: 'LOGIN_ID', passwordVariable: 'PASSWORD'),
+                            usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
                         string(credentialsId: 'api-token', variable: 'API_TOKEN'),
                         string(credentialsId: 'paypal-client-id', variable: 'PAYPAL_CLIENT_ID'),
                         string(credentialsId: 'paypal-client-secret', variable: 'PAYPAL_CLIENT_SECRET'),
@@ -114,7 +114,7 @@ pipeline {
                         sh '''
                             ENV=dev \
                             BASE_URL=$BASE_URL \
-                            LOGIN_ID=$LOGIN_ID \
+                            USERNAME=$USERNAME \
                             PASSWORD=$PASSWORD \
                             API_BASE_URL=$API_BASE_URL \
                             API_TOKEN=$API_TOKEN \
@@ -170,7 +170,7 @@ pipeline {
                     sh 'rm -rf allure-results reports'
                     withCredentials([
                         usernamePassword(credentialsId: 'qa-credentials',
-                            usernameVariable: 'LOGIN_ID', passwordVariable: 'PASSWORD'),
+                            usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
                         string(credentialsId: 'api-token', variable: 'API_TOKEN'),
                         string(credentialsId: 'paypal-client-id', variable: 'PAYPAL_CLIENT_ID'),
                         string(credentialsId: 'paypal-client-secret', variable: 'PAYPAL_CLIENT_SECRET'),
@@ -180,7 +180,7 @@ pipeline {
                         sh '''
                             ENV=qa \
                             BASE_URL=$BASE_URL \
-                            LOGIN_ID=$LOGIN_ID \
+                            USERNAME=$USERNAME \
                             PASSWORD=$PASSWORD \
                             API_BASE_URL=$API_BASE_URL \
                             API_TOKEN=$API_TOKEN \
@@ -236,7 +236,7 @@ pipeline {
                     sh 'rm -rf allure-results reports'
                     withCredentials([
                         usernamePassword(credentialsId: 'stage-credentials',
-                            usernameVariable: 'LOGIN_ID', passwordVariable: 'PASSWORD'),
+                            usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
                         string(credentialsId: 'api-token', variable: 'API_TOKEN'),
                         string(credentialsId: 'paypal-client-id', variable: 'PAYPAL_CLIENT_ID'),
                         string(credentialsId: 'paypal-client-secret', variable: 'PAYPAL_CLIENT_SECRET'),
@@ -246,7 +246,7 @@ pipeline {
                         sh '''
                             ENV=stage \
                             BASE_URL=$BASE_URL \
-                            LOGIN_ID=$LOGIN_ID \
+                            USERNAME=$USERNAME \
                             PASSWORD=$PASSWORD \
                             API_BASE_URL=$API_BASE_URL \
                             API_TOKEN=$API_TOKEN \
@@ -310,7 +310,7 @@ pipeline {
                     sh 'rm -rf allure-results reports'
                     withCredentials([
                         usernamePassword(credentialsId: 'prod-credentials',
-                            usernameVariable: 'LOGIN_ID', passwordVariable: 'PASSWORD'),
+                            usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'),
                         string(credentialsId: 'api-token', variable: 'API_TOKEN'),
                         string(credentialsId: 'paypal-client-id', variable: 'PAYPAL_CLIENT_ID'),
                         string(credentialsId: 'paypal-client-secret', variable: 'PAYPAL_CLIENT_SECRET'),
@@ -320,7 +320,7 @@ pipeline {
                         sh '''
                             ENV=prod \
                             BASE_URL=$BASE_URL \
-                            LOGIN_ID=$LOGIN_ID \
+                            USERNAME=$USERNAME \
                             PASSWORD=$PASSWORD \
                             API_BASE_URL=$API_BASE_URL \
                             API_TOKEN=$API_TOKEN \
