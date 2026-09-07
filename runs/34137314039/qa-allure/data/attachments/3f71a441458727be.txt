@@ -1,0 +1,3 @@
+STATUS CODE ==> 404
+STATUS CODE ==> Not Found
+RESPONSE BODY ==>  { message: 'Resource not found' }

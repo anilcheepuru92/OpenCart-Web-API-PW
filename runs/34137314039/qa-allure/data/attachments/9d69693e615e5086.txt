@@ -1,0 +1,19 @@
+Searching for macbook
+Actual Footers ==> [
+  'About Us',
+  'Delivery Information',
+  'Privacy Policy',
+  'Terms & Conditions',
+  'Contact Us',
+  'Returns',
+  'Site Map',
+  'Brands',
+  'Gift Certificates',
+  'Affiliate',
+  'Specials',
+  'My Account',
+  'Order History',
+  'Wish List',
+  'Newsletter',
+  'OpenCart'
+]
