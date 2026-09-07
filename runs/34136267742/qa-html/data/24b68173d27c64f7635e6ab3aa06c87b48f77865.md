@@ -1,0 +1,87 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: api/users-api.spec.ts >> @regression get user test
+- Location: tests/api/users-api.spec.ts:5:1
+
+# Error details
+
+```
+SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+```
+
+# Test source
+
+```ts
+  1  | import { test } from "@playwright/test";
+  2  | 
+  3  | let AUTH_TOKEN = {Authorization: "Bearer 10c0ba53681b541d08ba132593d8f32c28b45c81fd7717b42cc1f833144f01c2"};
+  4  | 
+  5  | test('@regression get user test', async({ request }) => {   
+  6  |     let response = await request.get('https://gorest.co.in/public/v2/users/8525307', {
+  7  |         headers: AUTH_TOKEN
+  8  |     });
+  9  |     console.log("FULL RESPONSE ==> ", response);
+  10 |     let statusCode = response.status();
+  11 |     console.log('STATUS CODE ==> '+ statusCode);
+> 12 |     let responseBody = await response.json();
+     |                        ^ SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+  13 |     console.log('RESPONSE BODY ==> ', responseBody);
+  14 | })
+  15 | 
+  16 | let userJson = {
+  17 |     "id": 8525307,
+  18 |     "name": "Aslesha Patel",
+  19 |     "email": "patel_vislesha@gibson.test",
+  20 |     "gender": "female",
+  21 |     "status": "active"
+  22 | }
+  23 | 
+  24 | test('@regression create a new user test', async({ request }) => {    
+  25 |     let userData = {
+  26 |         name: 'anil',
+  27 |         email: `automation_${Date.now()}@api.com`,
+  28 |         gender: 'male',
+  29 |         status: 'active'
+  30 |     }
+  31 |     
+  32 |     let response = await request.post('https://gorest.co.in/public/v2/users/', {
+  33 |         headers: AUTH_TOKEN,
+  34 |         data: userData
+  35 |     });
+  36 |     console.log('STATUS CODE ==> '+ response.status());
+  37 |     console.log('STATUS CODE ==> '+ response.statusText());
+  38 |     let responseBody = await response.json();
+  39 |     console.log('RESPONSE BODY ==> ', responseBody);
+  40 | })
+  41 | 
+  42 | test('@regression update a user test', async({ request }) => {    
+  43 |     let userData = {
+  44 |         email: `automation_${Date.now()}@api.com`,
+  45 |         gender: 'male',
+  46 |         status: 'active'
+  47 |     }
+  48 |     
+  49 |     let response = await request.put('https://gorest.co.in/public/v2/users/8525315', {
+  50 |         headers: AUTH_TOKEN,
+  51 |         data: userData
+  52 |     });
+  53 |     console.log('STATUS CODE ==> '+ response.status());
+  54 |     console.log('STATUS CODE ==> '+ response.statusText());
+  55 |     let responseBody = await response.json();
+  56 |     console.log('RESPONSE BODY ==> ', responseBody);
+  57 | })
+  58 | 
+  59 | test('@regression delete a user test', async({ request }) => {      
+  60 |     let response = await request.delete('https://gorest.co.in/public/v2/users/8525314', {
+  61 |         headers: AUTH_TOKEN,
+  62 |     });
+  63 |     console.log('STATUS CODE ==> '+ response.status());
+  64 |     console.log('STATUS CODE ==> '+ response.statusText());
+  65 | })
+```
