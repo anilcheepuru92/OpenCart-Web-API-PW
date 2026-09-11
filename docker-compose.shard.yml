@@ -1,0 +1,49 @@
+
+services:
+  shard1:
+    build: .
+    env_file:
+      - config/.env.qa
+    environment:
+      - CI=true
+    volumes:
+      - ./reports-shard-1:/app/reports/html-report
+      - ./allure-shard-1:/app/allure-results
+      - ./blob-shard-1:/app/blob-report
+    command: npx playwright test --project=chromium --shard=1/4
+
+  shard2:
+    build: .
+    env_file:
+      - config/.env.qa
+    environment:
+      - CI=true
+    volumes:
+      - ./reports-shard-2:/app/reports/html-report
+      - ./allure-shard-2:/app/allure-results
+      - ./blob-shard-2:/app/blob-report
+    command: npx playwright test --project=chromium --shard=2/4
+
+  shard3:
+    build: .
+    env_file:
+      - config/.env.qa
+    environment:
+      - CI=true
+    volumes:
+      - ./reports-shard-3:/app/reports/html-report
+      - ./allure-shard-3:/app/allure-results
+      - ./blob-shard-3:/app/blob-report
+    command: npx playwright test --project=chromium --shard=3/4
+
+  shard4:
+    build: .
+    env_file:
+      - config/.env.qa
+    environment:
+      - CI=true
+    volumes:
+      - ./reports-shard-4:/app/reports/html-report
+      - ./allure-shard-4:/app/allure-results
+      - ./blob-shard-4:/app/blob-report
+    command: npx playwright test --project=chromium --shard=4/4
