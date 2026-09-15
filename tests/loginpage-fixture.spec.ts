@@ -2,7 +2,7 @@ import { Assert } from 'node:assert';
 import { test, expect } from '../src/fixtures/page-fixtures';
 import { log } from 'node:console';
 import { CsvHelper } from '../src/utils/csv-util';
-import { ExcelHelper } from '../src/utils/excel.util';
+import { ExcelHelper } from '../src/utils/excel-util';
 import { JsonHelper } from '../src/utils/json-util';
 
 test.beforeEach(async({loginPage, homePage}) => {

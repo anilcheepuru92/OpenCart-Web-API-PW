@@ -9,6 +9,11 @@
     "types": [
       "node"
     ],
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
     "moduleResolution": "bundler",
     "strict": true,
     "esModuleInterop": true,
@@ -17,6 +22,10 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["**/*.ts", "playwright.config.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", 
+        "dist",
+        "tests",
+        "reports",
+        "allure-results"]
 }

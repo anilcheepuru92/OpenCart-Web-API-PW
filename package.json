@@ -1,8 +1,20 @@
 {
-  "name": "opencart-web-pw",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "opencart-web-api-pw",
+  "description": "Automation framework to automate the Opencart web application, and GoRest and Paypal APIs",
+  "author": "Anil Kumar Cheepuru",
+  "version": "1.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "src/pages/",
+    "src/fixtures/",
+    "src/api/",
+    "src/utils/",
+    "README.md"
+  ],
   "scripts": {
+    "build": "tsc",
     "test": "npx playwright test",
     "test:headed": "npx playwright test --headed",
     "test:chrome": "npx playwright test --project=chromium",
@@ -11,10 +23,23 @@
     "allure:report": "npm run allure:generate && npm run allure:open",
     "allure:clean": "rm -rf allure-results allure-report"
   },
-  "keywords": [],
-  "author": "Anil Kumar Cheepuru",
+  "keywords": [
+    "playwright",
+    "typescript",
+    "pom",
+    "automation",
+    "testing",
+    "sdet",
+    "api-testing",
+    "data-driven",
+    "framework"
+  ],
   "license": "ISC",
-  "description": "Automation framework to automate the Opencart web application",
+  "homepage": "https://github.com/anilcheepuru92/OpenCart-Web-API-PW",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anilcheepuru92/OpenCart-Web-API-PW.git"
+  },
   "type": "module",
   "devDependencies": {
     "@playwright/test": "^1.63.0",
