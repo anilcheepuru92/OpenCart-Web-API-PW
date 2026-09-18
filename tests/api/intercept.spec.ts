@@ -1,6 +1,5 @@
 
 import {test, expect} from '@playwright/test'
-import { json } from 'node:stream/consumers';
 
 //intercept the network calls
 test('@smoke intercept and log requests', async({page})=> {
