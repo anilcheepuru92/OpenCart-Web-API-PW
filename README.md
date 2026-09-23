@@ -231,21 +231,25 @@ For parallel/sharded execution, review and use `docker-compose.shard.yml` with t
 
 The public exports are available from the package root. The framework exposes page objects, custom fixtures, the API helper, and data helpers.
 
+## Install
+
+```bash
+npm install opencart-web-api-pw
+```
+
 ### Page objects
 
 Pass a Playwright `Page` to a page object and use its workflow methods:
 
 ```typescript
-import { LoginPage, HomePage } from 'opencart-web-api-pw';
-import { test } from '@playwright/test';
+import { LoginPage } from 'opencart-web-api-pw';
+import {test, expect} from '@playwright/test'
 
-test('user can log in', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  await loginPage.doLogin('user@test.com', 'password');
-
-  const homePage = new HomePage(page);
-  // Continue with HomePage actions and assertions.
-});
+test('user login functionality', async({page})=> {
+    // Use page objects
+    const loginPage = new LoginPage(page);
+    await loginPage.doLogin('user@test.com', 'password');
+})
 ```
 
 Available page-object exports include `BasePage`, `LoginPage`, `HomePage`, `SearchResultsPage`, `EditAccountPage`, and `ProductDetailsPage`.
@@ -255,13 +259,13 @@ Available page-object exports include `BasePage`, `LoginPage`, `HomePage`, `Sear
 The framework provides a customized `test` object with typed page-object fixtures. Import `test` and `expect` from the package rather than directly from Playwright when using these fixtures:
 
 ```typescript
-import { test, expect } from 'opencart-web-api-pw';
+import {test, expect} from 'opencart-web-api-pw'
 
-test('user can search for a product', async ({ homePage, searchResultsPage }) => {
-  // Use the already-created typed page objects here.
-  await expect(homePage.page).toBeTruthy();
-  // Continue with the page-object workflow.
-});
+test('user logs in and reaches home page', async({loginPage, homePage})=> {
+    // Use page objects
+    await loginPage.doLogin('user@test.com', 'password');
+    await homePage.getHomePageHeaders();
+})
 ```
 
 The available fixture properties include `basePage`, `loginPage`, `homePage`, `editAccountPage`, `searchResultsPage`, `productDetailsPage`, and `testData`. The `testData` fixture reads `src/data/loginData.csv` by default.
@@ -274,25 +278,11 @@ Create an `APIHelper` with Playwright's `APIRequestContext` and a base URL. It s
 import { APIHelper } from 'opencart-web-api-pw';
 import { test, expect } from '@playwright/test';
 
-test('get users', async ({ request }) => {
-  const apiHelper = new APIHelper(request, 'https://api.example.com');
-  const response = await apiHelper.get('/users');
-
-  expect(response.status).toBe(200);
-});
-```
-
-Requests can include headers and request data:
-
-```typescript
-const created = await apiHelper.post(
-  '/users',
-  { name: 'Test User' },
-  { Authorization: `Bearer ${process.env.API_TOKEN}` }
-);
-
-const updated = await apiHelper.put('/users/1', { name: 'Updated User' });
-const removed = await apiHelper.delete('/users/1');
+test('perform a get API call', async({request})=> {
+    // Use API helper
+    const apiHelper = new APIHelper(request, 'https://api.example.com');
+    const response = await apiHelper.get('/users');
+})
 ```
 
 ### Data helpers
